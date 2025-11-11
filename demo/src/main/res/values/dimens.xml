@@ -3,4 +3,6 @@
     <dimen name="size_text_buttons">10dp</dimen>
     <dimen name="size_margin_vertical_buttons">4dp</dimen>
     <dimen name="size_margin_horizontal_buttons">4dp</dimen>
+    <dimen name="size_text_main_button">24sp</dimen>
+    <dimen name="size_text_nav_buttons">18sp</dimen>
 </resources>

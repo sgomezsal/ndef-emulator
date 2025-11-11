@@ -10,147 +10,53 @@
     tools:context=".ui.DemoActivity">
 
     <Button
-        android:id="@+id/button_clear"
-        android:layout_width="match_parent"
+        android:id="@+id/button_nav_prev"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-        android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="16dp"
         android:background="@color/color_background"
         android:textColor="@color/color_text"
-        android:textSize="@dimen/size_text_buttons"
-        android:text="CLEAR"
-        />
+        android:textSize="@dimen/size_text_nav_buttons"
+        android:text="&lt;" />
 
-    <LinearLayout
-        android:id="@+id/row_buttons_uri"
+    <Button
+        android:id="@+id/button_nav_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="16dp"
+        android:background="@color/color_background"
+        android:textColor="@color/color_text"
+        android:textSize="@dimen/size_text_nav_buttons"
+        android:text=">" />
+
+    <Button
+        android:id="@+id/button_main_action"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_clear"
-        android:orientation="horizontal">
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/button_nav_prev"
+        android:layout_toStartOf="@id/button_nav_next"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/color_background"
+        android:textColor="@color/color_text"
+        android:textSize="@dimen/size_text_main_button"
+        android:text="YT_URL" />
 
-        <Button
-            android:id="@+id/button_url_youtube"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="YT_URL"
-            />
-
-        <Button
-            android:id="@+id/button_uri_youtube"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="YT URI"
-            />
-
-        <Button
-            android:id="@+id/button_url_whatsapp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="WA URL"
-            />
-
-        <Button
-            android:id="@+id/button_uri_telegram"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="TG URI"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/row_buttons_other"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button_clear"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/row_buttons_uri"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/button_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="TEXT"
-            />
-
-        <Button
-            android:id="@+id/button_geo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="GEO"
-            />
-
-        <Button
-            android:id="@+id/button_wifi"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="WIFI"
-            />
-
-        <Button
-            android:id="@+id/button_contact"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="@dimen/size_margin_vertical_buttons"
-            android:layout_marginStart="@dimen/size_margin_horizontal_buttons"
-            android:layout_marginEnd="@dimen/size_margin_horizontal_buttons"
-            android:background="@color/color_background"
-            android:textColor="@color/color_text"
-            android:textSize="@dimen/size_text_buttons"
-            android:text="CONTACT"
-            />
-
-    </LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:background="@color/color_background"
+        android:textColor="@color/color_text"
+        android:textSize="@dimen/size_text_nav_buttons"
+        android:text="CLEAR" />
 
 </RelativeLayout>
