@@ -55,9 +55,9 @@ class DemoActivity : BaseActivity() {
 				DemoAction("YT URI", {
 					ndefEmulation.currentEmulatedNdefData = UriNdefData("vnd.youtube://www.youtube.com/watch?v=dQw4w9WgXcQ")
 				}, "Youtube URI"),
-				DemoAction("WA URL", {
-					ndefEmulation.currentEmulatedNdefData = UriNdefData("https://wa.me/79123456789")
-				}, "WhatsApp"),
+			DemoAction("WA URL", {
+				ndefEmulation.currentEmulatedNdefData = UriNdefData("https://wa.me/573215741216?text=Hola%20Santiago,%20quisiera%20ponerme%20en%20contacto%20contigo.")
+			}, "WhatsApp"),
 				DemoAction("TG URI", {
 					ndefEmulation.currentEmulatedNdefData = UriNdefData("tg://msg?to=+79123456789")
 				}, "Telegram"),
@@ -70,26 +70,41 @@ class DemoActivity : BaseActivity() {
 				DemoAction("WIFI", {
 					ndefEmulation.currentEmulatedNdefData = WifiNetworkNdefData("TestWifi", WifiNetworkNdefDataProtectionType.PASSWORD, "TestWifiPassword")
 				}, "WiFi"),
-				DemoAction("CONTACT", {
-					ndefEmulation.currentEmulatedNdefData = ContactNdefData(
-						"Thomas",
-						"Anderson",
-						"+13125550690",
-						"tanderson@metacortex.com",
-						Date(53617109910L),
-						"MetaCortex",
-						"Software Engineer",
-						"https://hackertyper.net",
-						"Wake up",
-					)
-				}, "Contact"),
-				DemoAction("Website", {
-					ndefEmulation.currentEmulatedNdefData = UriNdefData("https://sgomezsal.com")
-				}, "Website")
+			DemoAction("CONTACT", {
+				ndefEmulation.currentEmulatedNdefData = ContactNdefData(
+					"Thomas",
+					"Anderson",
+					"+13125550690",
+					"contact@sgomezsal.com",
+					Date(53617109910L),
+					"MetaCortex",
+					"Software Engineer",
+					"https://wa.me/573215741216?text=Hola%20Santiago,%20quisiera%20ponerme%20en%20contacto%20contigo.",
+					"Wake up",
+				)
+			}, "Contact"),
+			DemoAction("EMAIL", {
+				// Construir URI mailto con codificación correcta para Android/iOS
+				// URLEncoder usa "+" para espacios, pero para URIs es mejor usar "%20"
+				val email = "contact@sgomezsal.com"
+				val subjectEncoded = java.net.URLEncoder.encode("Contacto profesional", "UTF-8")
+					.replace("+", "%20") // Reemplazar + por %20 para compatibilidad URI
+				val emailUri = "mailto:$email?subject=$subjectEncoded"
+				// Validar que el URI es válido antes de usarlo
+				val validatedUri = try {
+					java.net.URI.create(emailUri).toString()
+				} catch (e: Exception) {
+					emailUri // Usar el original si falla la validación
+				}
+				ndefEmulation.currentEmulatedNdefData = UriNdefData(validatedUri)
+			}, "Email"),
+			DemoAction("WEBSITE", {
+				ndefEmulation.currentEmulatedNdefData = UriNdefData("https://sgomezsal.com")
+			}, "Website")
 			)
 
 		selectedIndex = savedInstanceState?.getInt("selectedIndex")
-			?: (actions.indexOfFirst { it.label == "Website" }.takeIf { it >= 0 } ?: 0)
+			?: (actions.indexOfFirst { it.label == "WEBSITE" }.takeIf { it >= 0 } ?: 0)
 		updateMainButton()
 
 		buttonMainAction.setOnClickListener {
